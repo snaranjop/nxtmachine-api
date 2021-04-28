@@ -1,0 +1,19 @@
+{
+  "name": "nxtmachine-api",
+  "version": "1.0.0",
+  "description": "\\",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "AppSpringTech",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ravendb": "^5.0.3",
+    "typescript-rest": "^3.0.2"
+  }
+}

@@ -20,6 +20,15 @@ store.initialize();
 const session = store.openSession();
 
 //API Routes
+@Path("")
+class HomeService {
+  @Path("")
+  @GET
+  getHome(): string {
+    return "Welcome to nxtmachine API";
+  }
+}
+
 @Path("/user")
 class UserService {
   @Path(":userID")

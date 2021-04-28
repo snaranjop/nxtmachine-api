@@ -5,6 +5,7 @@ import {Server, Path, GET, PathParam, POST, FormParam, PUT} from "typescript-res
 import { UserResponse } from "./model/UserResponse";
 import { User } from "./model/User";
 import { Response } from "./model/Response";
+import * as cors from 'cors';
 
 // Db connection
 const authOptions = {
@@ -59,6 +60,8 @@ class UserService {
 
 let app: express.Application = express();
 Server.buildServices(app);
+
+app.use(cors);
 
 app.listen(3000, function() {
   console.log('Rest Server listening on port 3000!');

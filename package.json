@@ -4,10 +4,9 @@
   "description": "\\",
   "scripts": {
     "start": "node dist/index.js",
-    "postinstall": "tsc",
+    "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src",
     "watch-node": "nodemon dist/index.js",
-    "watch-ts": "tsc -w",
-    "deploy": "git add . && git commit -m Heroku && git push heroku master"
+    "watch-ts": "tsc -w"
   },
   "keywords": [
     "api"
@@ -18,7 +17,6 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "ravendb": "^5.0.3",
-    "ts-node": "^9.1.1",
     "typescript-rest": "^3.0.2"
   },
   "engines": { "node": "14.16.1" }

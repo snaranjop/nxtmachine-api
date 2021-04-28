@@ -68,7 +68,7 @@ class UserService {
 }
 
 let app: express.Application = express();
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
 
 const options: cors.CorsOptions = {
   origin: allowedOrigins

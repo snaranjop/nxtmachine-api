@@ -61,7 +61,13 @@ class UserService {
 let app: express.Application = express();
 Server.buildServices(app);
 
-app.use(cors);
+const allowedOrigins = ['http://localhost:3000'];
+
+const options: cors.CorsOptions = {
+  origin: allowedOrigins
+};
+
+app.use(cors(options));
 
 app.listen(3000, function() {
   console.log('Rest Server listening on port 3000!');

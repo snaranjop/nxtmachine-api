@@ -17,5 +17,5 @@
     "ravendb": "^5.0.3",
     "typescript-rest": "^3.0.2"
   },
-  "engines": { "node": "14.16.1" }
+  "engines": { "node": "12.16.3" }
 }

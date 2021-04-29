@@ -8,7 +8,7 @@ import { Response } from "./model/Response";
 import { Example } from "typescript-rest-swagger"
 import swaggerUI from 'swagger-ui-express'
 import swaggerSetup from './swaggerFiles/swagger.json'
-import * as cors from 'cors';
+import cors from 'cors';
 
 // Db connection
 const authOptions = {

@@ -1,4 +1,4 @@
-basePath: null
+basePath: /user
 definitions:
     UserResponse:
         description: ""
@@ -27,11 +27,11 @@ definitions:
             - userID
             - status
 info:
-    description: \
+    description: 'nxtmachine API Docs'
     license:
         name: MIT
-    title: nxtmachine-api
-    version: 1.0.0
+    title: 'nxtmachine API'
+    version: '1.0'
 paths:
     /:
         get:
@@ -126,3 +126,4 @@ paths:
                         type: object
 swagger: '2.0'
 securityDefinitions: {}
+host: 'https://nxt-machine-poc.herokuapp.com/'

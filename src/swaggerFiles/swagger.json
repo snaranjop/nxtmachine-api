@@ -1,4 +1,5 @@
 {
+	"basePath": "/user",
 	"definitions": {
 		"UserResponse": {
 			"description": "",
@@ -36,12 +37,12 @@
 		}
 	},
 	"info": {
-		"description": "nxtmachine API docs",
+		"description": "nxtmachine API Docs",
 		"license": {
 			"name": "MIT"
 		},
-		"title": "nxtmachine-api",
-		"version": "1.0.0"
+		"title": "nxtmachine API",
+		"version": "1.0"
 	},
 	"paths": {
 		"/": {
@@ -176,5 +177,6 @@
 		}
 	},
 	"swagger": "2.0",
-	"securityDefinitions": {}
+	"securityDefinitions": {},
+	"host": "https://nxt-machine-poc.herokuapp.com/"
 }

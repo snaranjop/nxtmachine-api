@@ -7,9 +7,7 @@ import { User } from "./model/User";
 import { Response } from "./model/Response";
 import { Example } from "typescript-rest-swagger"
 import swaggerUI from 'swagger-ui-express'
-
-
-const swaggerSetUp = fs.readFileSync('src/swaggerFiles/swagger.json');
+import swaggerSetup from './swaggerFiles/swagger.json'
 
 // Db connection
 const authOptions = {
@@ -112,7 +110,7 @@ class UserService {
 let app: express.Application = express();
 
 //Swagger Config
-app.use('/api', swaggerUI.serve, swaggerUI.setup(swaggerSetUp));
+app.use('/api', swaggerUI.serve, swaggerUI.setup(swaggerSetup));
 
 //User services build
 Server.buildServices(app);

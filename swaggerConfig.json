@@ -1,17 +1,16 @@
 {
     "swagger": {
         "outputDirectory": "./src/swaggerFiles",
-        "entryFile": "./src/index.ts"
-    },
-    "basePath": "http://localhost:3000/",
-    "version": "1.0.0",
-    "name": "NXT API ",
-    "description": "NXT API using express and typescript",
-    "license": "MIT",
-    "consumes": [
-        "application/json"
-    ],
-    "produces": [
-        "application/json"
-    ]
+        "entryFile": "./src/index.ts",
+        "outputFormat": "openapi_3",
+        "host": "https://nxt-machine-poc.herokuapp.com/",
+        "version": "1.0",
+        "name": "nxtmachine API",
+        "description": "nxtmachine API Docs",
+        "license": "MIT",
+        "basePath": "/user",
+        "ignore": [
+          "**/node_modules/**"
+        ]
+    }
 }

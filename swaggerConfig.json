@@ -1,6 +1,6 @@
 {
     "swagger": {
-        "outputDirectory": "./swaggerFiles",
+        "outputDirectory": "./src/swaggerFiles",
         "entryFile": "./src/index.ts"
     },
     "basePath": "http://localhost:3000/",

@@ -36,7 +36,7 @@
 		}
 	},
 	"info": {
-		"description": "NXT Machine example API",
+		"description": "nxtmachine API docs",
 		"license": {
 			"name": "MIT"
 		},
@@ -73,13 +73,22 @@
 						"description": "Ok",
 						"schema": {
 							"$ref": "#/definitions/UserResponse"
+						},
+						"examples": {
+							"application/json": {
+								"fullName": "Sergio Naranjo",
+								"email": "snp@gmail.com",
+								"age": 22,
+								"userID": "193-A",
+								"status": "success"
+							}
 						}
 					}
 				},
-				"description": "",
+				"description": "This endpoint allows to retrieve an user form the database. If the user doesn't exist the field status will be \"non-existing-user\" otherwise, it will be \"success\"",
 				"parameters": [
 					{
-						"description": "",
+						"description": "ID of the user to retrieve",
 						"in": "path",
 						"name": "userID",
 						"required": true,
@@ -99,10 +108,19 @@
 						"description": "Ok",
 						"schema": {
 							"type": "object"
+						},
+						"examples": {
+							"application/json": {
+								"fullName": "Sergio Naranjo",
+								"email": "snp@gmail.com",
+								"age": 22,
+								"userID": "193-A",
+								"status": "success"
+							}
 						}
 					}
 				},
-				"description": "",
+				"description": "This endpoint allows to retrieve an user form the database. If the user doesn't exist the field status will be \"non-existing-user\" otherwise, it will be \"success\"",
 				"consumes": [
 					"application/json"
 				],
@@ -128,16 +146,24 @@
 						"description": "Ok",
 						"schema": {
 							"type": "object"
+						},
+						"examples": {
+							"application/json": {
+								"fullName": "Sergio Naranjo",
+								"email": "snp@gmail.com",
+								"age": 35,
+								"id": "users/353-A"
+							}
 						}
 					}
 				},
-				"description": "",
+				"description": "This service allows to create a new user. If the operation is successful the status will be \"success\". If there is any error the error msg will be in the status field.",
 				"consumes": [
 					"application/json"
 				],
 				"parameters": [
 					{
-						"description": "",
+						"description": "User object with the info to create the user",
 						"in": "body",
 						"name": "user",
 						"required": true,

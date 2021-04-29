@@ -55,10 +55,17 @@ paths:
                     description: Ok
                     schema:
                         $ref: '#/definitions/UserResponse'
-            description: ""
+                    examples:
+                        application/json:
+                            fullName: 'Sergio Naranjo'
+                            email: snp@gmail.com
+                            age: 22
+                            userID: 193-A
+                            status: success
+            description: 'This endpoint allows to retrieve an user form the database. If the user doesn''t exist the field status will be "non-existing-user" otherwise, it will be "success"'
             parameters:
                 -
-                    description: ""
+                    description: 'ID of the user to retrieve'
                     in: path
                     name: userID
                     required: true
@@ -73,7 +80,14 @@ paths:
                     description: Ok
                     schema:
                         type: object
-            description: ""
+                    examples:
+                        application/json:
+                            fullName: 'Sergio Naranjo'
+                            email: snp@gmail.com
+                            age: 22
+                            userID: 193-A
+                            status: success
+            description: 'This endpoint allows to retrieve an user form the database. If the user doesn''t exist the field status will be "non-existing-user" otherwise, it will be "success"'
             consumes:
                 - application/json
             parameters:
@@ -93,12 +107,18 @@ paths:
                     description: Ok
                     schema:
                         type: object
-            description: ""
+                    examples:
+                        application/json:
+                            fullName: 'Sergio Naranjo'
+                            email: snp@gmail.com
+                            age: 35
+                            id: users/353-A
+            description: 'This service allows to create a new user. If the operation is successful the status will be "success". If there is any error the error msg will be in the status field.'
             consumes:
                 - application/json
             parameters:
                 -
-                    description: ""
+                    description: 'User object with the info to create the user'
                     in: body
                     name: user
                     required: true

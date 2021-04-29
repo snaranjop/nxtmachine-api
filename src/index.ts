@@ -5,9 +5,11 @@ import {Server, Path, GET, PathParam, POST, FormParam, PUT} from "typescript-res
 import { UserResponse } from "./model/UserResponse";
 import { User } from "./model/User";
 import { Response } from "./model/Response";
-import cors from 'cors';
+import { Example } from "typescript-rest-swagger"
 import swaggerUI from 'swagger-ui-express'
-import swaggerSetup from './swaggerFiles/swagger.json'
+
+
+const swaggerSetUp = fs.readFileSync('src/swaggerFiles/swagger.json');
 
 // Db connection
 const authOptions = {
@@ -33,6 +35,19 @@ class HomeService {
 
 @Path("/user")
 class UserService {
+  /**
+   * This endpoint allows to retrieve an user form the database. If the user doesn't exist the field status will be "non-existing-user" otherwise, it will be "success"
+   * @param userID ID of the user to retrieve
+   */
+   @Example<UserResponse>(
+    {
+      "fullName": "Sergio Naranjo",
+      "email": "snp@gmail.com",
+      "age": 22,
+      "userID": "193-A",
+      "status": "success"
+    }
+  )
   @Path(":userID")
   @GET
   async getUser( @PathParam('userID') userID: string): Promise<UserResponse> {
@@ -44,6 +59,19 @@ class UserService {
     }
   }
 
+  /**
+   * This endpoint allows to retrieve an user form the database. If the user doesn't exist the field status will be "non-existing-user" otherwise, it will be "success"
+   * @param userID ID of the user to retrieve
+   */
+   @Example<UserResponse>(
+    {
+      "fullName": "Sergio Naranjo",
+      "email": "snp@gmail.com",
+      "age": 22,
+      "userID": "193-A",
+      "status": "success"
+    }
+  )
   @Path("")
   @POST
   async updateUser(userBody: any): Promise<any> {
@@ -59,6 +87,18 @@ class UserService {
     }
   }
 
+  /**
+   * This service allows to create a new user. If the operation is successful the status will be "success". If there is any error the error msg will be in the status field.
+   * @param user User object with the info to create the user
+   */
+   @Example(
+    {
+      "fullName": "Sergio Naranjo",
+      "email": "snp@gmail.com",
+      "age": 35,
+      "id": "users/353-A"
+    }
+  )
   @Path("")
   @PUT
   async createUser(user: any): Promise<any> {
@@ -70,18 +110,16 @@ class UserService {
 }
 
 let app: express.Application = express();
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
 
-const options: cors.CorsOptions = {
-  origin: allowedOrigins
-};
+//Swagger Config
+app.use('/api', swaggerUI.serve, swaggerUI.setup(swaggerSetUp));
 
-app.use(cors(options));
-app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerSetup))
+//User services build
 Server.buildServices(app);
 
 const port = process.env.PORT || 3000
 
+//Run Server
 app.listen(port, function() {
   console.log('Rest Server listening on port 3000!');
 });

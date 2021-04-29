@@ -8,6 +8,7 @@ import { Response } from "./model/Response";
 import { Example } from "typescript-rest-swagger"
 import swaggerUI from 'swagger-ui-express'
 import swaggerSetup from './swaggerFiles/swagger.json'
+import * as cors from 'cors';
 
 // Db connection
 const authOptions = {
@@ -108,6 +109,13 @@ class UserService {
 }
 
 let app: express.Application = express();
+
+//Cors config
+const allowedOrigins = ['http://nxtmachine.appspringtech.com/'];
+const options: cors.CorsOptions = {
+  origin: allowedOrigins
+};
+app.use(cors(options));
 
 //Swagger Config
 app.use('/api', swaggerUI.serve, swaggerUI.setup(swaggerSetup));

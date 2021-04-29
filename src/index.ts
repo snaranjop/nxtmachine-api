@@ -111,7 +111,7 @@ class UserService {
 let app: express.Application = express();
 
 //Cors config
-const allowedOrigins = ['http://nxtmachine.appspringtech.com/'];
+const allowedOrigins = ['http://nxtmachine.appspringtech.com'];
 const options: cors.CorsOptions = {
   origin: allowedOrigins
 };

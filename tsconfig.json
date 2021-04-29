@@ -6,6 +6,8 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
   }
 }

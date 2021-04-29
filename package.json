@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "ravendb": "^5.0.3",
+    "swagger-ui-express": "^4.1.6",
     "typescript-rest": "^3.0.2"
   }
 }

@@ -1,0 +1,108 @@
+basePath: null
+definitions:
+    UserResponse:
+        description: ""
+        properties:
+            fullName:
+                type: string
+                description: ""
+            email:
+                type: string
+                description: ""
+            age:
+                type: number
+                format: double
+                description: ""
+            userID:
+                type: string
+                description: ""
+            status:
+                type: string
+                description: ""
+        type: object
+        required:
+            - fullName
+            - email
+            - age
+            - userID
+            - status
+info:
+    description: \
+    license:
+        name: MIT
+    title: nxtmachine-api
+    version: 1.0.0
+paths:
+    /:
+        get:
+            operationId: HomeServiceGetHome
+            produces:
+                - text/html
+            responses:
+                '200':
+                    description: Ok
+                    schema:
+                        type: string
+            description: ""
+            parameters: []
+    '/user/{userID}':
+        get:
+            operationId: UserServiceGetUser
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: Ok
+                    schema:
+                        $ref: '#/definitions/UserResponse'
+            description: ""
+            parameters:
+                -
+                    description: ""
+                    in: path
+                    name: userID
+                    required: true
+                    type: string
+    /user/:
+        post:
+            operationId: UserServiceUpdateUser
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: Ok
+                    schema:
+                        type: object
+            description: ""
+            consumes:
+                - application/json
+            parameters:
+                -
+                    description: ""
+                    in: body
+                    name: userBody
+                    required: true
+                    schema:
+                        type: object
+        put:
+            operationId: UserServiceCreateUser
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: Ok
+                    schema:
+                        type: object
+            description: ""
+            consumes:
+                - application/json
+            parameters:
+                -
+                    description: ""
+                    in: body
+                    name: user
+                    required: true
+                    schema:
+                        type: object
+swagger: '2.0'
+securityDefinitions: {}

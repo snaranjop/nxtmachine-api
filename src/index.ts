@@ -1,11 +1,13 @@
 import { DocumentStore } from "ravendb";
-import * as fs from "fs";
-import * as express from "express";
+import fs from "fs";
+import express from "express";
 import {Server, Path, GET, PathParam, POST, FormParam, PUT} from "typescript-rest";
 import { UserResponse } from "./model/UserResponse";
 import { User } from "./model/User";
 import { Response } from "./model/Response";
-import * as cors from 'cors';
+import cors from 'cors';
+import swaggerUI from 'swagger-ui-express'
+import swaggerSetup from './swaggerFiles/swagger.json'
 
 // Db connection
 const authOptions = {
@@ -75,7 +77,7 @@ const options: cors.CorsOptions = {
 };
 
 app.use(cors(options));
-
+app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerSetup))
 Server.buildServices(app);
 
 app.listen(3000, function() {
